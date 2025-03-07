@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Be_Vietnam_Pro, Montserrat } from "next/font/google";
+import AOSInitializer from "./components/AOSInitializer";
+import { Toaster } from "sonner";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-vietnam-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-vietnam-sans",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${beVietnamPro.variable} font-sans antialiased`}
       >
+        <AOSInitializer />
+        <Toaster position="top-center" richColors />
         {children}
       </body>
     </html>
