@@ -40,10 +40,10 @@ export default function Home() {
       <Navbar />
 
       <main id="home">
-        <div className="flex justify-between flex-col md:flex-row items-center min-h-screen gap-10 md:gap-0 px-5 py-24 md:py-0 md:p-24">
+        <div className="bg-[url('/bg-image.jpg')] rounded-b-3xl h-screen bg-cover flex justify-between flex-col md:flex-row items-center min-h-screen gap-10 md:gap-0 px-5 py-24 md:py-0 md:p-24">
           <div className="relative text-center md:text-left">
             <h1
-              className="font-bold text-2xl md:text-[80px] leading-[40px] md:leading-[80px] md:w-[650px] pt-5 md:pt-0"
+              className="text-white font-beVietnam font-bold text-2xl md:text-[80px] leading-[40px] md:leading-[80px] md:w-[650px] pt-5 md:pt-0"
               data-aos="fade-up"
               data-aos-duration="700"
             >
@@ -51,7 +51,7 @@ export default function Home() {
             </h1>
 
             <p
-              className="text-sm md:text-lg font-medium pt-5 leading-7 w-full md:w-[600px]"
+              className="text-sm text-white md:text-lg font-medium pt-5 leading-7 w-full md:w-[600px]"
               data-aos="fade-up"
               data-aos-duration="1100"
             >
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div data-aos="fade-up" data-aos-duration="900">
+          {/* <div data-aos="fade-up" data-aos-duration="900">
             <Image
               src="/hero-image.jpg"
               width={720}
@@ -91,7 +91,7 @@ export default function Home() {
               alt="Bob-theo hero image"
               priority
             />
-          </div>
+          </div> */}
         </div>
 
         <div

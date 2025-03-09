@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro, Montserrat } from "next/font/google";
 import AOSInitializer from "./components/AOSInitializer";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -8,14 +8,14 @@ import "./globals.css";
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-vietnam-sans",
+  variable: "--font-beVietnamPro",
 });
 
-// const montserrat = Montserrat({
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-vietnam-sans",
-// });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "Bob-theo Global Services",
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${beVietnamPro.variable} font-sans antialiased`}
+        className={`${beVietnamPro.variable} ${montserrat.variable} font-mont antialiased`}
       >
         <AOSInitializer />
         <Toaster position="top-center" richColors />

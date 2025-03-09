@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,17 +11,37 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [nav, setNav] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNav(true);
+    } else {
+      setNav(false);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", changeBackground);
+    }
+  }, []);
 
   return (
-    <header className="fixed left-0 right-0 top-0 bg-white flex items-center justify-between z-10 px-6 md:px-[100px] py-5">
+    <header
+      className={`fixed left-0 right-0 top-0 flex items-center justify-between z-10 px-6 md:px-[100px] py-5 ${
+        nav && "bg-[#1C3441]"
+      }`}
+    >
       <Link href="/">
-        <Image
+        {/* <Image
           src="/logo.png"
           className="hidden md:block"
           width={150}
           height={43}
           alt="Koinage Logo"
-        />
+        /> */}
+        <div className="font-bold text-2xl text-white">BOB THEO</div>
         <Image
           src="/logo.png"
           className="md:hidden"
@@ -30,27 +50,27 @@ const Navbar = () => {
           alt="Koinage Logo"
         />
       </Link>
-      <ul className="hidden md:flex items-center gap-12">
+      <ul className="hidden md:flex items-center gap-12 text-offwhite">
         <li
-          className={`text-sm font-semibold hover:text-primary ${
+          className={`text-sm font-semibold hover:text-white ${
             pathname === "/"
-              ? "text-primary underline-animation"
+              ? "text-white underline-animation"
               : "landing-page-hover"
           }`}
         >
           <Link href="/#home">Home</Link>
         </li>
         <li
-          className={`text-sm font-semibold hover:text-primary ${
+          className={`text-sm font-semibold hover:text-white ${
             pathname === "/#how-it-works"
-              ? "text-primary underline-animation"
+              ? "text-white underline-animation"
               : "landing-page-hover"
           }`}
         >
           <Link href="/#how-it-works">How It Works</Link>
         </li>
         <li
-          className={`text-sm font-semibold hover:text-primary ${
+          className={`text-sm font-semibold hover:text-white ${
             pathname === "/about"
               ? "text-primary underline-animation"
               : "landing-page-hover"
@@ -59,7 +79,7 @@ const Navbar = () => {
           <Link href="/about">About Us</Link>
         </li>
         <li
-          className={`text-sm font-semibold hover:text-primary ${
+          className={`text-sm font-semibold hover:text-white ${
             pathname === "/#faq"
               ? "text-primary underline-animation"
               : "landing-page-hover"
@@ -162,7 +182,9 @@ const Navbar = () => {
       </div>
 
       <Link href="/contact-us" className="hidden md:block">
-        <Button primary>Contact Us</Button>
+        <Button className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-black">
+          Contact Us
+        </Button>
       </Link>
     </header>
   );

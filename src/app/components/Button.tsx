@@ -19,7 +19,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`flex justify-center items-center rounded-md cursor-pointer text-sm h-[43px] py-3 px-9 disabled:cursor-no-drop disabled:bg-disabled disabled:text-[#999] font-bold ${
+      className={`flex justify-center items-center rounded-md cursor-pointer text-sm h-[43px] py-3 px-9 disabled:cursor-no-drop disabled:bg-disabled disabled:text-[#999] font-semibold ${
         className && `${className}`
       } ${primary && "bg-primary text-white hover:bg-secondary"} ${
         secondary && "bg-white text-primary hover:bg-white"
